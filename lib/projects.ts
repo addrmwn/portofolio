@@ -5,9 +5,7 @@ export const projects = [
     description: "A modern minimal portfolio showcasing my work and skills.",
     link: "https://github.com/addrmwn/portofolio",
     images: [
-      "/placeholders/compose-notes.svg",
-      "/placeholders/client-crm.svg",
-      "/placeholders/internal-ops.svg",
+      "/placeholders/portofolio.png",
     ]
   },
   {
