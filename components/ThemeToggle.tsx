@@ -2,9 +2,8 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { FiMonitor } from "react-icons/fi";   // system
-import { FiSun } from "react-icons/fi";       // light
-import { FiMoon } from "react-icons/fi";      // dark
+import { FiMonitor, FiSun, FiMoon } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 export default function ThemeToggle() {
   const { setTheme, theme, systemTheme } = useTheme();
@@ -15,38 +14,55 @@ export default function ThemeToggle() {
 
   const active = theme === "system" ? `System (${systemTheme ?? ""})` : theme;
 
-  const baseStyle =
-    "flex items-center gap-1 px-3 py-1 rounded-full text-sm font-semibold transition";
-  const inactiveStyle =
-    "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700";
-  const activeStyle = "bg-accent text-white dark:bg-accent-dark";
+  const options = [
+    { key: "system", label: "System", icon: FiMonitor },
+    { key: "light", label: "Light", icon: FiSun },
+    { key: "dark", label: "Dark", icon: FiMoon },
+  ];
 
   return (
-    <div className="card flex items-center gap-1 p-1 rounded-full">
-      <button
-        onClick={() => setTheme("system")}
-        className={`${baseStyle} ${
-          theme === "system" ? activeStyle : inactiveStyle
-        }`}
-      >
-        <FiMonitor size={14} /> System
-      </button>
-      <button
-        onClick={() => setTheme("light")}
-        className={`${baseStyle} ${
-          theme === "light" ? activeStyle : inactiveStyle
-        }`}
-      >
-        <FiSun size={14} /> Light
-      </button>
-      <button
-        onClick={() => setTheme("dark")}
-        className={`${baseStyle} ${
-          theme === "dark" ? activeStyle : inactiveStyle
-        }`}
-      >
-        <FiMoon size={14} /> Dark
-      </button>
+    <div className="relative flex items-center gap-1 p-1 rounded-full bg-slate-100 dark:bg-slate-800">
+      {options.map((opt) => {
+        const isActive = theme === opt.key;
+        const Icon = opt.icon;
+        return (
+          <button
+            key={opt.key}
+            onClick={() => setTheme(opt.key)}
+            className="relative flex items-center gap-1 px-3 py-1 rounded-full text-sm font-semibold transition-colors"
+          >
+            {/* Highlight background */}
+            {isActive && (
+              <motion.div
+                layoutId="theme-toggle-pill"
+                className="absolute inset-0 rounded-full bg-accent dark:bg-accent-dark"
+                transition={{ type: "spring", stiffness: 500, damping: 30 }}
+              />
+            )}
+
+            {/* Icon & label */}
+            <span
+              className={`relative z-10 flex items-center gap-1 ${
+                isActive ? "text-white" : "text-slate-600 dark:text-slate-300"
+              }`}
+            >
+              <motion.span
+                key={opt.key}
+                animate={
+                  isActive
+                    ? { rotate: 360, scale: 1.2 }
+                    : { rotate: 0, scale: 1 }
+                }
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+              >
+                <Icon size={14} />
+              </motion.span>
+              {opt.label}
+            </span>
+          </button>
+        );
+      })}
+
       <span className="ml-2 text-xs text-slate-500 dark:text-slate-400">
         {active}
       </span>

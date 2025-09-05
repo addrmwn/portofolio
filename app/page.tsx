@@ -5,6 +5,7 @@ import ProjectCard from "@/components/ProjectCard";
 import ProjectModal from "@/components/ProjectModal";
 import TechStack from "@/components/TechStack";
 import { motion } from "framer-motion";
+import GitHubStats from "@/components/GitHubStats";
 
 export default function ProjectsSection() {
   const [selected, setSelected] = useState(null);
@@ -40,9 +41,11 @@ export default function ProjectsSection() {
       <span className="badge bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300">
         Mobile Developer (Kotlin/Compose)
       </span>
-      <span className="badge bg-pink-100 text-pink-800 dark:bg-pink-900/40 dark:text-pink-300">
-        Always building
-      </span>
+      <span className="badge bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300">
+  Network Engineer (MikroTik / ISP Infrastructure)
+</span>
+
+     
     </div>
 
     <div className="mt-4 flex gap-3 flex-wrap">
@@ -56,7 +59,12 @@ export default function ProjectsSection() {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="card p-5">
           <h2 className="font-semibold text-lg mb-2">About</h2>
-         <p>I build API backends, websites with <b>PHP/CodeIgniter</b>, and Android apps with <b>Kotlin/Compose</b>. Exploring <b>Clean Architecture</b> and shipping small, useful tools. Coffee + music.</p>
+<p>
+  I build API backends, websites with <b>PHP/CodeIgniter</b>, and Android apps
+  with <b>Kotlin/Compose</b>. Exploring <b>Clean Architecture</b> and shipping
+  small, useful tools. <b>Also experienced as a Network Engineer, handling
+  MikroTik, OLT, modem configuration, and ISP infrastructure.</b> Coffee + music.
+</p>
 
         </div>
         <div className="card p-5">
@@ -86,24 +94,21 @@ export default function ProjectsSection() {
     </section>
 
 
-      {/* GITHUB STATS (static sample) */}
-      <section className="card p-5">
-        <h2 className="font-semibold text-lg mb-2">GitHub — Most Used Languages</h2>
-        <div aria-hidden className="h-2 rounded-full bg-gradient-to-r from-accent via-slate-400 to-slate-400"></div>
-        <div className="mt-2 flex gap-4 text-sm text-slate-500 dark:text-slate-400 flex-wrap">
-          <span>JavaScript 47.15%</span>
-          <span>PHP 30.50%</span>
-          <span>CSS 14.36%</span>
-          <span>HTML 6.66%</span>
-        </div>
-        <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">*Hook to GitHub API later for live data.</p>
-      </section>
+<section className="card p-5">
+  <h2 className="font-semibold text-lg mb-2">Certifications</h2>
+  <ul className="list-disc list-inside text-sm space-y-1">
+    <li><b>MTCNA</b> — MikroTik Certified Network Associate (2025)</li>
+  </ul>
+</section>
 
+
+      {/* GITHUB STATS (static sample) */}
+     <GitHubStats />
       {/* STACK */}
 <TechStack />
 
 
-      <footer className="text-center text-slate-500 dark:text-slate-400 py-4">© {new Date().getFullYear()} Adi Darmawan — modern minimal</footer>
+      <footer className="text-center text-slate-500 dark:text-slate-400 py-4">© {new Date().getFullYear()} Adi Darmawan — All rights reserved.</footer>
     </main>
   );
 }

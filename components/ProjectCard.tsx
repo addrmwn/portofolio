@@ -5,12 +5,9 @@ import { Github } from "lucide-react";
 
 export default function ProjectCard({ p, onClick }: any) {
   return (
-    <div
-      className="card cursor-pointer hover:shadow-lg transition flex flex-col"
-      onClick={() => onClick(p)}
-    >
-      {/* Thumbnail */}
-      <div className="thumb">
+    <div className="card hover:shadow-lg transition flex flex-col">
+      {/* Thumbnail - klik di sini aja */}
+      <div className="thumb cursor-pointer" onClick={() => onClick(p)}>
         <Image
           src={p.images?.[0] || "/images/placeholder.png"}
           alt={p.title}
@@ -25,9 +22,23 @@ export default function ProjectCard({ p, onClick }: any) {
         <div>
           <h3 className="font-semibold">{p.title}</h3>
           <p className="text-sm text-ink-dim">{p.description}</p>
+
+          {/* Tech Stack */}
+          {p.tech && p.tech.length > 0 && (
+            <div className="mt-2 flex flex-wrap gap-2">
+              {p.tech.map((t: string, idx: number) => (
+                <span
+                  key={idx}
+                  className="px-2 py-0.5 rounded-full text-xs font-medium bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Footer: badge + GitHub button */}
+        {/* Footer */}
         <div className="mt-3 flex items-center gap-2">
           {p.link ? (
             <>
@@ -36,7 +47,6 @@ export default function ProjectCard({ p, onClick }: any) {
                 href={p.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()} // biar klik link gak buka modal
                 className="btn btn-primary text-sm flex items-center gap-2"
               >
                 <Github size={16} />
