@@ -1,0 +1,31 @@
+{
+  "name": "adrmwn-portfolio",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev",
+    "prebuild": "npm ci --include=dev || npm install --include=dev",
+    "build": "next build",
+    "start": "next start -p 5572",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "framer-motion": "^12.23.12",
+    "lucide-react": "^0.542.0",
+    "next": "14.2.3",
+    "next-themes": "0.2.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^5.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.3.1",
+    "@types/react": "19.1.12",
+    "autoprefixer": "10.4.16",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.3",
+    "postcss": "8.4.32",
+    "tailwindcss": "3.4.3",
+    "typescript": "5.3.3"
+  }
+}
