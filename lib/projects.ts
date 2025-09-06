@@ -26,8 +26,15 @@ export const projects = [
     link: null,
     tech: ["PHP", "CodeIgniter 4", "Mysql"], // ini yang baru
     images: [
-      "/placeholders/api-gateway.svg",
-      "/placeholders/internal-ops.svg",
+      "/placeholders/hsgqapp/login.jpg",
+      "/placeholders/hsgqapp/dashboard.jpg",
+      "/placeholders/hsgqapp/user_manager.jpg",
+      "/placeholders/hsgqapp/alarm.jpg",
+      "/placeholders/hsgqapp/whatsapp.jpg",
+      "/placeholders/hsgqapp/dashboard_depan.jpg",
+      "/placeholders/hsgqapp/pon.jpg",
+      "/placeholders/hsgqapp/onu.jpg",
+      "/placeholders/hsgqapp/bot.jpg",
     ]
   },
   {
@@ -58,6 +65,17 @@ export const projects = [
     description: "A mobile app designed for field technicians to track, troubleshoot, and resolve ISP issues efficiently.",
     link: null,
     tech: ["Kotlin / Compose", "Firebase"], // ini yang baru
+    images: [
+      "/placeholders/comingsoon.svg",
+      "/placeholders/comingsoon.svg",
+    ]
+  },
+    {
+    slug: "website",
+    title: "ISP Management System (Recode / Next.js + NestJS)",
+    description:"Migrated from PHP CodeIgniter monolith to a modern stack using Next.js for frontend and NestJS for backend. Built with modular architecture, Docker, MySQL, and Redis to improve scalability and performance in ISP operations.",
+    link: null,
+    tech: ["Next.js", "NestJS", "MySQL", "Redis", "Docker"], // ini yang baru
     images: [
       "/placeholders/comingsoon.svg",
       "/placeholders/comingsoon.svg",
